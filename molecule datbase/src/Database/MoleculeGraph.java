@@ -23,7 +23,7 @@ public class MoleculeGraph {
     }
 
     public static void main(String[] args) {
-        MoleculeGraph G = new MoleculeGraph("isomeric1,4,C,O,H,H,0 2,0 1,1 3,");
+        MoleculeGraph G = new MoleculeGraph("isomeric1///4///C///O///H///H///0 2///0 1///1 3///");
         System.out.println(G);
         System.out.println(G.edges);
     }
@@ -37,7 +37,7 @@ public class MoleculeGraph {
         secret = secretCode;
         String tmp = "";
         List<String> list = new ArrayList();
-        String[] array = secretCode.split(",");
+        String[] array = secretCode.split("@");
         for (String value : array) {
             list.add(value);
         }

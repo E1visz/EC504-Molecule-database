@@ -31,9 +31,9 @@ public class newDatabase {
             InputStreamReader var4 = new InputStreamReader(new FileInputStream(file));
             BufferedReader var5 = new BufferedReader(var4);
             moleculeName = var5.readLine();
-            secretCode += moleculeName + ",";
+            secretCode += moleculeName + "@";
             while ((tmp = var5.readLine()) != null) {
-                secretCode += tmp+ ",";
+                secretCode += tmp+ "@";
             }
 
         } catch (Exception var7) {

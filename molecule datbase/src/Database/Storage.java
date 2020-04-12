@@ -6,14 +6,34 @@ import java.util.*;
 public class Storage {
 
     public static void main(String[] args) throws IOException {
-        newDatabase database = new newDatabase();
-        database.addMolecule("C:/Users/M S I/Desktop/molecule datbase/isomeric.txt");
-        Storage st = new Storage();
-        st.writeCSV(database);
+//        newDatabase database = new newDatabase();
+//
+//        File file = new File("C:/Users/M S I/Desktop/molecule datbase/PubChemData");
+//        String [] fileName = file.list();
+//        for (String x: fileName) {
+//            database.addMolecule("C:/Users/M S I/Desktop/molecule datbase/PubChemData/" + x);
+//        }
 //        Storage st = new Storage();
-//        newDatabase database = st.readCSV("writers.csv");
-//        database.findMolecule("isomeric.txt");
-//        System.out.println(database.data2);
+//        st.writeCSV(database);
+
+
+        Storage st = new Storage();
+        newDatabase database = st.readCSV("writers.csv");
+
+        long startTime=System.currentTimeMillis();
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        database.findMolecule("isomeric.txt");
+        long endTime=System.currentTimeMillis();
+        System.out.println("10 operation running time： " + (endTime-startTime) + "ms");
+
 
 
     }
@@ -49,6 +69,4 @@ public class Storage {
         }
         return database;
     }
-
-
 }
