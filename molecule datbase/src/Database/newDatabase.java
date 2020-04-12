@@ -12,8 +12,10 @@ import java.util.List;
 
 public class newDatabase {
     //Field
-    static HashMap<molecularProperty, MoleculeGraph> data;
-    static HashMap<String, MoleculeGraph> data2;
+    static HashMap<molecularProperty, MoleculeGraph> data = new HashMap<>();
+    static HashMap<String, MoleculeGraph> data2 = new HashMap<>();
+
+    //constructor
 
 
     //method
@@ -22,20 +24,22 @@ public class newDatabase {
     //add the molecule by the molecule name
     public void addMolecule(String filePath) {
         String moleculeName = "";
-        String input = "";
-
+        String secretCode = "";
+        String tmp = "";
         try {
             File file = new File(filePath);
             InputStreamReader var4 = new InputStreamReader(new FileInputStream(file));
             BufferedReader var5 = new BufferedReader(var4);
             moleculeName = var5.readLine();
-            while(var5.readLine() != null) {
-                input += var5.readLine();
+            secretCode += moleculeName + ",";
+            while ((tmp = var5.readLine()) != null) {
+                secretCode += tmp+ ",";
             }
+
         } catch (Exception var7) {
             var7.printStackTrace();
         }
-        MoleculeGraph G = new  MoleculeGraph(filePath);
+        MoleculeGraph G = new MoleculeGraph(secretCode);
         molecularProperty P = new molecularProperty();
         data2.put(moleculeName, G);
         data.put(P, G);
@@ -54,7 +58,7 @@ public class newDatabase {
         }
         if (data2.containsKey(moleculeName)) {
             System.out.println("-----");
-            System.out.println(moleculeName + "IS FOUND");
+            System.out.println(moleculeName + " IS FOUND");
             System.out.println("-----");
         } else {
             System.out.println("-----");

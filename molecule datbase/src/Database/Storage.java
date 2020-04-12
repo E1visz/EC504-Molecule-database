@@ -1,39 +1,54 @@
 package Database;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Storage {
 
+    public static void main(String[] args) throws IOException {
+        newDatabase database = new newDatabase();
+        database.addMolecule("C:/Users/M S I/Desktop/molecule datbase/isomeric.txt");
+        Storage st = new Storage();
+        st.writeCSV(database);
+//        Storage st = new Storage();
+//        newDatabase database = st.readCSV("writers.csv");
+//        database.findMolecule("isomeric.txt");
+//        System.out.println(database.data2);
+
+
+    }
+
     public void writeCSV(newDatabase NewDatabase) throws IOException {
         try {
-            File var2 = new File("writers.csv");
-            var2.delete();
-            var2.createNewFile();
-            BufferedWriter var3 = new BufferedWriter(new FileWriter(var2, true));
-//            Iterator var4 = NewDatabase.data.entrySet().iterator();
-            Iterator var8 = NewDatabase.data2.entrySet().iterator();
-
-
-            while(var8.hasNext()) {
-                MoleculeGraph var5 = (MoleculeGraph) var8.next();
-                var5.edges
-
-//                String var6 = var5.getKey() + "," + var5.getValue();
-//                var6 = var6.replace("[", " ");
-//                var6 = var6.replace("]", "");
-                var3.write(var6);
-                var3.newLine();
+            File csv = new File("writers.csv");
+            csv.delete();
+            csv.createNewFile();
+            BufferedWriter bw = new BufferedWriter(new FileWriter(csv, true));
+            for (MoleculeGraph value : newDatabase.data2.values()) {
+                String tmp = "";
+                tmp = value.getSecret();
+                bw.write(tmp);
+                bw.newLine();
             }
-
-            var3.close();
+            bw.close();
         } catch (IOException var7) {
             var7.printStackTrace();
         }
-
     }
+
+    public newDatabase readCSV(String filepath) {
+        newDatabase database = new newDatabase();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filepath));
+            String line = null;
+            while((line=reader.readLine())!=null){
+                database.data2.put(line.split(",")[0], new MoleculeGraph(line));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return database;
+    }
+
 
 }
