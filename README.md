@@ -21,7 +21,7 @@ For subgraph search, one of the hardest challenges in this project. Graph isomor
 
 ### Download 1,000 known compounds from an existing database (e.g., [http://www.chemspider.com/AboutServices.aspx?][ChemSpider]]) into your molecular database. [5%]
 PubChem is a freely available database of chemical structures of small organic molecules and information on their biological activities. We chose the PubChem API to we created the HttpURLConnection object to connect with URL as PubChem URL format. We pulled the data in a JSON format and used compound identifier(CID) as the input portion. The data is iterated through a for loop and increase ID by one each time until getting 1000 compounds.
-![image] (https://github.com/E1visz/EC504-Molecule-database/blob/master/pubchem.png)
+![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/pubchem.png)
 
 ### Develop a web page and corresponding server-side executable for accessing the database. [5%]
 We used html+javascript to design a web user interface, which has two pages: Add and search. Using Servlet and JSP to pass the text entered into an HTML text box to a Java method(passing .txt file).
