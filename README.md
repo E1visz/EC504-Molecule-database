@@ -13,16 +13,27 @@ Our project aims to present a molecule database, which stores structural propert
 
 ## Basic Functionality 
 ### Overview
+We store our molecules in a Hashmap data structure, because of it’s features of quick adding and quick searching. Each key within the Hashmap is stored using a multigraph with each key-value pair stored in the database through a built-in “put” function. We have a pre-compiled database of 10,000 molecules (gathered from Pubchem) stored on 10,000 text files and then assembled them to  a csv file, which is our mainly database.That the user can pre populate the hashmap from. If the user would like to start with a different dataset, they can rewrite part of the csv file or import one from a local directory. We have written Java functions to add compounds, search for compounds, and perform a subgraph search (revealing which compounds contain a specific subgraph, used as an input parameter in the function). A user has the ability to interact with the database via a command-line-interface or an Android Client or a Web Interface.
+
+For subgraph search, one of the hardest challenges in this project. Graph isomorphism occurs when a given Graph G1 has a one to one mapping of nodes to another Graph G2, i.e in our case when molecules have the same graph structure even then their text representation is different. In order to solve this problem we also utilized Hashmap. The key of the hashmap is the molecule property and the value is a direct weighted graph which stores the chemical bond of a molecule. In the graph, the vertices are atoms which construct the molecule, the weighted edges are the chemical bonds with weight representing bond number between two atoms. To assist in the efficiency of this method we apply pruning to the Database when doing subgraph search. This pruning included matching the number of unique elements , the number of Atoms, number of Bonds and Weight of Bonds before the recursive algorithm using back-tracking is called with.This implementation is great due to its early detection and quit abilities, optimized backtracking, and satisfaction of Neighbor Compatibility. This algorithm is very efficient and overall has very similar performance to the advanced algorithms such as Ullman and VFT.
 
 ## Additional Feature Implementation:
 
-### Download 1,000 known compounds from an existing database (e.g., [http://www.chemspider.com/AboutServices.aspx?][ChemSpider]]) into your molecular database.
+### Download 1,000 known compounds from an existing database (e.g., [http://www.chemspider.com/AboutServices.aspx?][ChemSpider]]) into your molecular database. [5%]
 PubChem is a freely available database of chemical structures of small organic molecules and information on their biological activities. We chose the PubChem API to we created the HttpURLConnection object to connect with URL as PubChem URL format. We pulled the data in a JSON format and used compound identifier(CID) as the input portion. The data is iterated through a for loop and increase ID by one each time until getting 1000 compounds.
-![image] 
+![image] https://github.com/E1visz/EC504-Molecule-database/blob/master/pubchem.png
 
-### Ability to search for the most similar molecule to a given molecule, under some reasonable graph similarity metric.
-### Implement subgraph search - finding all molecules(Gs) that contain a subgraph(SG) provided
+### Develop a web page and corresponding server-side executable for accessing the database. [5%]
+We used html+javascript to design a web user interface, which has two pages: Add and search. Using Servlet and JSP to pass the text entered into an HTML text box to a Java method(passing .txt file).
+
+### Develop an Android client for your database. [5%]
+
+### Ability to handle core operations on 10,000 complex molecules, each of at least 10 thousand atoms, at a rate of 10 operations per second on a lab computer. [10%]
+
+### Implement subgraph search - finding all molecules(Gs) that contain a subgraph(SG) provided [10%]
+
 ### The following additional features have been removed from our Midterm Status Report:
+
 ## References: 
 [1] Givaudan Schweiz AG, 2013 Dec 11. Molecule database framework: a framework for creating database applications with chemical structure search capability. Journal of Cheminformatics.
 Explanation: The involved scientists must be able to store this data and search it by chemical structure. We refer to the chemical structure of that model.
@@ -51,30 +62,29 @@ All testing code utilized to observe the correctness of our code.
 ## Work Breakdown
 * Suli Hu
 	- Wrote command line interface. 
-  - Implemented MolecularProperty() class.
+  	- Implemented MolecularProperty() class.
 	- Most similar search function: look for 4 cases to find the most similar molecule given an input molecule file
-  - Designing the graph data structure implementing MoleculeGraph() class.
-  - Implemented graphMatch() class.
+  	- Designing the graph data structure implementing MoleculeGraph() class.
+  	- Implemented graphMatch() class.
 * Peixi Zhao
-  - Designing the graph data structure implementing MoleculeGraph() class.
-  - Implemented graphMatch() class.
- 	- Researched and implemented findSubgraph() Method.
-  - Researched and implemented solution for Isomorphism problem, i.e same_graph class and all its methods 
-  - Wrote Install.txt.
+  	- Designing the graph data structure implementing MoleculeGraph() class.
+  	- Implemented graphMatch() class.
+ 	- Researched and implemented findSubgraph() Method. 
+  	- Wrote Install.txt.
 * Chenhui Zhu 
 	- Wrote test cases for main and put in formatting for test cases
-  - Built the data structure framework (layered HashMap)
+  	- Built the data structure framework (layered HashMap)
 	- Implemented add_Molecule() Method. 
 	- Implemented find_Molecule() Method.
 	- Wrote a bunch of Error catching constraints. 
 * Jinyu Tian
 	- Worked on setting up an Android-app to add and search for molecules and finishing these functions(not implemented in final program).
-  - Assisted in designing data structure for the prototype.
-  - Assisted in building the data structure framework.
-  - Wrote Readme.md
+  	- Assisted in designing data structure for the prototype.
+  	- Assisted in building the data structure framework.
+  	- Wrote Readme.md
 * Xushan Hu
 	- Worked on setting up a web-app to add and search for molecules (not implemented in final program), it can add multiple .txt files of molecule locally to database.
-  - Finished downloading 1,0000 known compounds from an existing database (we used Pubchem) into our molecular database.
-  - Wrote a bunch of Error catching constraints.
-  - Wrote Readme.md
+  	- Finished downloading 1,0000 known compounds from an existing database (we used Pubchem) into our molecular database.
+ 	- Wrote a bunch of Error catching constraints.
+  	- Wrote Readme.md
 ## Web App Interface
