@@ -101,3 +101,7 @@ All testing code utilized to observe the correctness of our code.
 	- Before we add the molecule 'acylene' to the database, we can not find the molecule 'acylene':
 	
 ![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/android1.png)
+
+ 	- Add molecule ‘actylene’ to the database.
+	
+![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/android2.png)
