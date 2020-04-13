@@ -27,10 +27,10 @@ PubChem is a freely available database of chemical structures of small organic m
 We used html+javascript to design a web user interface, which has two pages: Add and search. Using Servlet and JSP to pass the text entered into an HTML text box to a Java method(passing .txt file).
 
 ### Develop an Android client for your database. [5%]
-
-### Ability to handle core operations on 10,000 complex molecules, each of at least 10 thousand atoms, at a rate of 10 operations per second on a lab computer. [10%]
+For the Android Client, we developed it on Android Studio. Firstly, we packed the finished java code into a java module and added it to the Android Studio Application. We packaged the java module into a “black box”, which means we will only use the input and output of the module in the MainActivity of the application. The csv file and text file, which are the database and input data, are stored in the assets file folder, which can be read and written by MainActivity without using out storage. We use Button, EditText,TextView to finish the logic of our Application, which is: User editing the text content of EditText1 which is actually the molecule name to be searched and shows in the form of a search box on the layout. Then the user presses Button1, which means pass the parameter of the search function and call this function. Finally the result of the search function will be shown on the screen by TextView1. The add function is similar that EditText2 represents the name of the molecule to be added and by text content of EditText2 we can find the file that stores the property of this molecule. Then Button2 converts the parameter and calls the addFunction and TextView1 shows the result in the end. For the layout/UI design, we simply put all of these two functions into the same page and it seems a little crowded. If time allows, we can add more functions such as reducing the molecular structure diagram on the screen and etc.
 
 ### Implement subgraph search - finding all molecules(Gs) that contain a subgraph(SG) provided [10%]
+For subgraph search, firstly we use a hashmap which store the molecule property as the key and the actual graph of the molecule as the value. And we compare the subgraph molecule with each molecule's property which we store in our database. The property include the type atoms in the graph, the number of atoms in the graph,  the number of edges in the graph. Then we select some molecule which the property is the same or contain the property of the subgraph. Then for these selected molecule, we use a contain function to find if the big graph contain the subgraph. We recursivly go through each node of the two graph, and compare if it's the same atom, if they are the same atom, and then we compare the edges of the atoms. If the edges is the same, then go to next atom of the subgraph. If we successfully go through the whole subgraph, then we will know the subgraph is the subgraph of the big molecule graph.
 
 ### The following additional features have been removed from our Midterm Status Report:
 
@@ -92,3 +92,8 @@ All testing code utilized to observe the correctness of our code.
 ## Web App Interface
 ![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/web1.png)
 ![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/web.png)
+## Android App Interface
+	- Main page:
+![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/android.png)
+	- Before we add the molecule 'acylene' to the database, we can not find the molecule 'acylene':
+![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/android1.png)
