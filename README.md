@@ -33,6 +33,7 @@ For the Android Client, we developed it on Android Studio. Firstly, we packed th
 For subgraph search, firstly we use a hashmap which store the molecule property as the key and the actual graph of the molecule as the value. And we compare the subgraph molecule with each molecule's property which we store in our database. The property include the type atoms in the graph, the number of atoms in the graph,  the number of edges in the graph. Then we select some molecule which the property is the same or contain the property of the subgraph. Then for these selected molecule, we use a contain function to find if the big graph contain the subgraph. We recursivly go through each node of the two graph, and compare if it's the same atom, if they are the same atom, and then we compare the edges of the atoms. If the edges is the same, then go to next atom of the subgraph. If we successfully go through the whole subgraph, then we will know the subgraph is the subgraph of the big molecule graph.
 
 ### The following additional features have been removed from our Midterm Status Report:
+We finished all future plans of our MidtermStatusReport. But we have to improve our webpage functionality.
 
 ## References: 
 [1] Givaudan Schweiz AG, 2013 Dec 11. Molecule database framework: a framework for creating database applications with chemical structure search capability. Journal of Cheminformatics.
