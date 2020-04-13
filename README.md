@@ -105,3 +105,7 @@ All testing code utilized to observe the correctness of our code.
  	- Add molecule ‘actylene’ to the database.
 	
 ![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/android2.png)
+
+	-After adding molecule 'actylene' to the database, we can find actylene and can see the molecule property on the screen.
+
+![image](https://github.com/E1visz/EC504-Molecule-database/blob/master/android3.png)
