@@ -11,11 +11,11 @@ public class Storage {
 //        String path2 = "water2.txt";
 //        newDatabase data = new newDatabase();
 //        data.addMolecule(path1);
-//        data.addMolecule("water3.txt");
+//        data.findMolecule("water3.txt");
         Storage st = new Storage();
         newDatabase data = st.readCSV("Graphwriter.csv");
         System.out.println(data.database.size());
-        data.findMolecule("water3.txt");
+        data.findSubgraph("water.txt");
 
 
 
@@ -27,7 +27,6 @@ public class Storage {
 //        }
 //        Storage st = new Storage();
 //        st.writeCSV(database);
-
     }
 
     public void writeCSV(newDatabase NewDatabase) throws IOException {
@@ -51,7 +50,6 @@ public class Storage {
         }
     }
 
-
     public newDatabase readCSV(String graphFilePath) {
         newDatabase database = new newDatabase();
         try {
@@ -73,7 +71,4 @@ public class Storage {
         }
         return database;
     }
-
-
-
 }

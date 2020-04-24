@@ -99,7 +99,7 @@ public class graphMatch {
         }
         if (equalVetex(VertexA,VertexB)){
             Vector<Pair<MoleculeGraph.Vertex, MoleculeGraph.Vertex>> Pairs = getequalVertex(VertexA, VertexB);
-            if (Pairs == null)
+            if (Pairs.isEmpty())
                 return false;
             else {
                 Pair P1 = new Pair(VertexA,VertexB);
